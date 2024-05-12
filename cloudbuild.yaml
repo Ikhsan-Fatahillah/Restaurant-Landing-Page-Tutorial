@@ -1,16 +1,16 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/restaurant-landing-page', '.']
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/restaurant-landing-page2', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/restaurant-landing-page']
+    args: ['push', 'gcr.io/$PROJECT_ID/restaurant-landing-page2']
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       [
         'run',
         'deploy',
-        'restaurant-landing-page',
+        'restaurant-landing-page2',
         '--image',
-        'gcr.io/$PROJECT_ID/restaurant-landing-page',
+        'gcr.io/$PROJECT_ID/restaurant-landing-page2',
         '--region',
         'asia-southeast2',
         '--platform',
